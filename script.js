@@ -141,12 +141,15 @@ document
     card.addEventListener(
       "mouseleave",
       () => {
-        // Keep the KATA app demo running.
-        if (
+        const continuousVideo =
           video.classList.contains(
             "app-showcase-video"
-          )
-        ) {
+          ) ||
+          video.classList.contains(
+            "merch-showcase-video"
+          );
+
+        if (continuousVideo) {
           return;
         }
 
@@ -171,11 +174,7 @@ document
             video
               .play()
               .catch(() => {});
-          } else if (
-            !video.classList.contains(
-              "app-showcase-video"
-            )
-          ) {
+          } else {
             video.pause();
           }
         },
