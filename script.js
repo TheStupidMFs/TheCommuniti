@@ -1,176 +1,244 @@
 const body = document.body;
 
-const menuButton = document.querySelector(".menu-button");
+const menuButton =
+  document.querySelector(".menu-button");
 
-const mobileMenu = document.querySelector(".mobile-menu");
+const mobileMenu =
+  document.querySelector(".mobile-menu");
 
-// Mobile navigation
+// MOBILE MENU
+
 menuButton.addEventListener("click", () => {
-  const open = !mobileMenu.classList.contains("open");
+  const isOpen =
+    !mobileMenu.classList.contains("open");
 
-  mobileMenu.classList.toggle("open", open);
+  mobileMenu.classList.toggle(
+    "open",
+    isOpen
+  );
 
-  body.classList.toggle("menu-open", open);
+  body.classList.toggle(
+    "menu-open",
+    isOpen
+  );
 
   mobileMenu.setAttribute(
     "aria-hidden",
-    String(!open)
+    String(!isOpen)
   );
 
   menuButton.setAttribute(
     "aria-expanded",
-    String(open)
+    String(isOpen)
   );
 });
 
-mobileMenu.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    mobileMenu.classList.remove("open");
+mobileMenu
+  .querySelectorAll("a")
+  .forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
 
-    body.classList.remove("menu-open");
+      body.classList.remove("menu-open");
 
-    mobileMenu.setAttribute(
-      "aria-hidden",
-      "true"
-    );
+      mobileMenu.setAttribute(
+        "aria-hidden",
+        "true"
+      );
 
-    menuButton.setAttribute(
-      "aria-expanded",
-      "false"
-    );
+      menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+    });
   });
-});
 
-// Crossfade hero videos
+// HERO VIDEO CROSSFADE
+
 const heroVideos = [
   ...document.querySelectorAll(".hero-video")
 ];
 
-let currentVideo = 0;
+let currentHeroVideo = 0;
 
 if (heroVideos.length > 1) {
   setInterval(() => {
-    heroVideos[currentVideo].classList.remove("active");
+    heroVideos[currentHeroVideo]
+      .classList.remove("active");
 
-    currentVideo =
-      (currentVideo + 1) % heroVideos.length;
+    currentHeroVideo =
+      (currentHeroVideo + 1) %
+      heroVideos.length;
 
-    heroVideos[currentVideo].classList.add("active");
+    const nextVideo =
+      heroVideos[currentHeroVideo];
 
-    heroVideos[currentVideo]
+    nextVideo.classList.add("active");
+
+    nextVideo
       .play()
       .catch(() => {});
   }, 9000);
 }
 
-// Reveal elements as they enter the screen
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
+// REVEAL ANIMATIONS
 
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  },
-  {
-    threshold: 0.14
-  }
-);
+const revealObserver =
+  new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        entry.target.classList.add(
+          "visible"
+        );
+
+        revealObserver.unobserve(
+          entry.target
+        );
+      });
+    },
+    {
+      threshold: 0.14
+    }
+  );
 
 document
   .querySelectorAll(".reveal")
   .forEach((element, index) => {
     element.style.transitionDelay =
-      `${Math.min((index % 4) * 70, 210)}ms`;
+      `${Math.min(
+        (index % 4) * 70,
+        210
+      )}ms`;
 
     revealObserver.observe(element);
   });
 
-// Play portfolio videos when hovered
+// PROJECT VIDEOS
+
 document
   .querySelectorAll(".interactive-card")
   .forEach((card) => {
-    const video = card.querySelector("video");
+    const video =
+      card.querySelector("video");
 
     if (!video) {
       return;
     }
 
-    card.addEventListener("mouseenter", () => {
-      video.play().catch(() => {});
-    });
-
-    card.addEventListener("mouseleave", () => {
-      video.pause();
-
-      video.currentTime = 0;
-    });
-
-    // Play videos when visible on phones
-    const videoObserver = new IntersectionObserver(
-      ([entry]) => {
-        const isTouchDevice =
-          window.matchMedia("(pointer: coarse)").matches;
-
-        if (!isTouchDevice) {
-          return;
-        }
-
-        if (entry.isIntersecting) {
-          video.play().catch(() => {});
-        } else {
-          video.pause();
-        }
-      },
-      {
-        threshold: 0.65
+    card.addEventListener(
+      "mouseenter",
+      () => {
+        video
+          .play()
+          .catch(() => {});
       }
     );
 
-    videoObserver.observe(card);
+    card.addEventListener(
+      "mouseleave",
+      () => {
+        // Keep the KATA app demo running.
+        if (
+          video.classList.contains(
+            "app-showcase-video"
+          )
+        ) {
+          return;
+        }
+
+        video.pause();
+        video.currentTime = 0;
+      }
+    );
+
+    const mobileVideoObserver =
+      new IntersectionObserver(
+        ([entry]) => {
+          const isTouchDevice =
+            window.matchMedia(
+              "(pointer: coarse)"
+            ).matches;
+
+          if (!isTouchDevice) {
+            return;
+          }
+
+          if (entry.isIntersecting) {
+            video
+              .play()
+              .catch(() => {});
+          } else if (
+            !video.classList.contains(
+              "app-showcase-video"
+            )
+          ) {
+            video.pause();
+          }
+        },
+        {
+          threshold: 0.55
+        }
+      );
+
+    mobileVideoObserver.observe(card);
   });
 
-// Custom cursor
-const cursor = document.querySelector(".cursor");
+// CUSTOM CURSOR
+
+const cursor =
+  document.querySelector(".cursor");
 
 const cursorLabel =
   document.querySelector(".cursor-label");
 
-let mouseX = 0;
-let mouseY = 0;
+window.addEventListener(
+  "mousemove",
+  (event) => {
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
 
-window.addEventListener("mousemove", (event) => {
-  mouseX = event.clientX;
-  mouseY = event.clientY;
+    cursor.style.opacity = "1";
 
-  cursor.style.opacity = "1";
+    cursor.style.transform =
+      `translate(
+        ${mouseX - 6}px,
+        ${mouseY - 6}px
+      )`;
 
-  cursor.style.transform =
-    `translate(${mouseX - 6}px, ${mouseY - 6}px)`;
-
-  cursorLabel.style.transform =
-    `translate(${mouseX - 37}px, ${mouseY - 37}px)`;
-});
+    cursorLabel.style.transform =
+      `translate(
+        ${mouseX - 38}px,
+        ${mouseY - 38}px
+      )`;
+  }
+);
 
 document
   .querySelectorAll(".interactive-card")
   .forEach((card) => {
-    card.addEventListener("mouseenter", () => {
-      cursor.style.opacity = "0";
+    card.addEventListener(
+      "mouseenter",
+      () => {
+        cursor.style.opacity = "0";
+        cursorLabel.style.opacity = "1";
+      }
+    );
 
-      cursorLabel.style.opacity = "1";
-    });
-
-    card.addEventListener("mouseleave", () => {
-      cursor.style.opacity = "1";
-
-      cursorLabel.style.opacity = "0";
-    });
+    card.addEventListener(
+      "mouseleave",
+      () => {
+        cursor.style.opacity = "1";
+        cursorLabel.style.opacity = "0";
+      }
+    );
   });
 
-// Magnetic movement for buttons
+// MAGNETIC BUTTONS
+
 document
   .querySelectorAll(".magnetic")
   .forEach((element) => {
@@ -191,7 +259,10 @@ document
           rect.height / 2;
 
         element.style.transform =
-          `translate(${x * 0.08}px, ${y * 0.12}px)`;
+          `translate(
+            ${x * 0.08}px,
+            ${y * 0.12}px
+          )`;
       }
     );
 
@@ -204,6 +275,9 @@ document
     );
   });
 
-// Automatically update footer year
-document.getElementById("year").textContent =
+// FOOTER YEAR
+
+document.getElementById(
+  "year"
+).textContent =
   new Date().getFullYear();
