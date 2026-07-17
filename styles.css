@@ -294,7 +294,7 @@ p {
 }
 
 .hero-bottom p {
-  max-width: 580px;
+  max-width: 610px;
   margin-bottom: 0;
   color: rgba(255, 255, 255, 0.78);
   font-size: clamp(15px, 1.35vw, 20px);
@@ -413,7 +413,7 @@ p {
   font-family: "Space Grotesk", sans-serif;
   font-size: clamp(24px, 3vw, 48px);
   font-weight: 700;
-  animation: ticker 28s linear infinite;
+  animation: ticker 32s linear infinite;
 }
 
 .ticker-track i {
@@ -442,7 +442,7 @@ p {
 }
 
 .section-intro {
-  max-width: 360px;
+  max-width: 380px;
   margin-bottom: 0;
   color: var(--muted);
   font-size: 16px;
@@ -468,8 +468,8 @@ p {
 }
 
 .project-wide {
-  grid-row: span 2;
-  min-height: 980px;
+  grid-row: span 3;
+  min-height: 1874px;
 }
 
 .project-card video {
@@ -547,7 +547,7 @@ p {
   font-weight: 800;
 }
 
-/* APP SHOWCASE — NO EXTRA PHONE FRAME */
+/* APP SHOWCASE */
 
 .app-showcase-card {
   position: relative;
@@ -583,19 +583,59 @@ p {
     );
 }
 
-.app-project-meta {
+/* MERCH SHOWCASE */
+
+.merch-showcase-card {
+  position: relative;
+  min-height: 610px;
+  overflow: hidden;
+  background: #050505;
+}
+
+.merch-showcase-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transform: scale(1.01);
+}
+
+.merch-showcase-card:hover .merch-showcase-video {
+  transform: scale(1.05);
+}
+
+.merch-showcase-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.02) 28%,
+      rgba(0, 0, 0, 0.16) 62%,
+      rgba(0, 0, 0, 0.88) 100%
+    );
+}
+
+.app-project-meta,
+.merch-project-meta {
   z-index: 4;
 }
 
-.app-project-meta p {
+.app-project-meta p,
+.merch-project-meta p {
   color: rgba(255, 255, 255, 0.72);
 }
 
-.app-project-meta h3 {
+.app-project-meta h3,
+.merch-project-meta h3 {
   color: white;
 }
 
-.app-project-meta .project-index {
+.app-project-meta .project-index,
+.merch-project-meta .project-index {
   color: white;
   border-color: rgba(255, 255, 255, 0.55);
 }
@@ -990,7 +1030,8 @@ footer p {
   }
 
   .project-card,
-  .app-showcase-card {
+  .app-showcase-card,
+  .merch-showcase-card {
     min-height: 580px;
   }
 
@@ -1071,7 +1112,8 @@ footer p {
 
   .project-wide,
   .project-card,
-  .app-showcase-card {
+  .app-showcase-card,
+  .merch-showcase-card {
     min-height: 560px;
   }
 
@@ -1079,7 +1121,8 @@ footer p {
     min-height: 620px;
   }
 
-  .app-showcase-video {
+  .app-showcase-video,
+  .merch-showcase-video {
     object-position: center center;
   }
 
