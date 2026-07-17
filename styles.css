@@ -18,7 +18,6 @@
 
   --radius-large: 30px;
   --radius-medium: 22px;
-  --radius-small: 14px;
 
   --page-padding: 4vw;
   --section-padding: 130px;
@@ -71,7 +70,7 @@ button {
 }
 
 /* =========================
-   GLOBAL TYPOGRAPHY
+   GLOBAL
 ========================= */
 
 h1,
@@ -103,6 +102,7 @@ p {
   top: 0;
   left: 0;
   z-index: 100;
+
   width: 100%;
 
   display: flex;
@@ -111,7 +111,7 @@ p {
 
   padding: 18px var(--page-padding);
 
-  color: white;
+  color: #ffffff;
   mix-blend-mode: difference;
 }
 
@@ -155,10 +155,11 @@ p {
   width: 100%;
   height: 2px;
 
-  background: white;
+  background: #ffffff;
 
   transform: scaleX(0);
   transform-origin: right;
+
   transition: transform 0.3s ease;
 }
 
@@ -225,7 +226,9 @@ p {
   text-align: center;
 
   transform: translateY(-105%);
-  transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  transition:
+    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .mobile-menu.open {
@@ -384,7 +387,7 @@ p {
 
 .button-primary {
   background: var(--blue);
-  color: white;
+  color: #ffffff;
 
   box-shadow:
     0 12px 35px rgba(8, 103, 255, 0.3);
@@ -420,6 +423,7 @@ p {
   transform:
     rotate(90deg)
     translateY(-100%);
+
   transform-origin: top right;
 }
 
@@ -497,7 +501,7 @@ p {
   border-bottom: 1px solid var(--line);
 
   background: var(--blue);
-  color: white;
+  color: #ffffff;
 }
 
 .ticker-track {
@@ -527,7 +531,7 @@ p {
 }
 
 /* =========================
-   SECTION HEADING
+   SECTION HEADINGS
 ========================= */
 
 .section-heading {
@@ -617,8 +621,8 @@ p {
   position: absolute;
   inset: 0;
 
-  border-radius: inherit;
   border: 2px solid transparent;
+  border-radius: inherit;
 
   pointer-events: none;
 
@@ -632,7 +636,7 @@ p {
 .project-meta {
   position: absolute;
   inset: auto 0 0;
-  z-index: 2;
+  z-index: 5;
 
   display: flex;
   align-items: flex-end;
@@ -678,18 +682,18 @@ p {
 }
 
 /* =========================
-   MOBILE APP PLACEHOLDER
+   MOBILE APP VIDEO CARD
 ========================= */
 
 .project-placeholder {
+  color: #080808;
+
   background:
     linear-gradient(
       145deg,
       #f5c900,
       var(--yellow)
     );
-
-  color: #080808;
 }
 
 .placeholder-grid {
@@ -710,78 +714,89 @@ p {
   background-size: 32px 32px;
 }
 
+.app-showcase-card {
+  min-height: 610px;
+}
+
 .app-device {
   position: absolute;
-  top: 45%;
+  top: 43%;
   left: 50%;
 
-  width: 45%;
-  height: 70%;
+  width: 48%;
+  height: 74%;
 
-  padding: 14px;
+  padding: 10px;
 
-  border: 6px solid #222;
-  border-radius: 34px;
+  overflow: hidden;
 
-  background: #0c0c0c;
+  border: 7px solid #222222;
+  border-radius: 42px;
+
+  background: #080808;
 
   box-shadow:
-    0 40px 80px rgba(0, 0, 0, 0.42);
+    0 40px 85px rgba(0, 0, 0, 0.42);
 
   transform:
     translate(-50%, -50%)
     rotate(8deg);
 
   transition:
-    transform 0.5s ease;
+    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.55s ease;
 }
 
 .project-placeholder:hover .app-device {
   transform:
     translate(-50%, -53%)
     rotate(3deg)
-    scale(1.03);
+    scale(1.035);
+
+  box-shadow:
+    0 50px 100px rgba(0, 0, 0, 0.5);
 }
 
-.device-notch {
-  width: 45%;
-  height: 14px;
+.device-screen {
+  position: relative;
 
-  margin:
-    0
-    auto
-    20px;
+  width: 100%;
+  height: 100%;
 
-  border-radius: 20px;
+  overflow: hidden;
 
-  background: #242424;
+  border-radius: 31px;
+
+  background: #000000;
 }
 
-.device-ui span,
-.device-ui div {
-  display: block;
+.app-demo-video {
+  width: 100%;
+  height: 100%;
 
-  margin-bottom: 12px;
+  object-fit: cover;
+  object-position: center;
 
-  border-radius: 12px;
+  border-radius: inherit;
 }
 
-.device-ui span {
-  height: 42px;
-  background: var(--blue);
-}
+.device-speaker {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  z-index: 4;
 
-.device-ui span:nth-child(2) {
-  background: #f4f0e9;
-}
+  width: 36%;
+  height: 13px;
 
-.device-ui span:nth-child(3) {
-  background: var(--red);
-}
+  border-radius: 100px;
 
-.device-ui div {
-  height: 90px;
-  background: #2b2b2b;
+  background: rgba(20, 20, 20, 0.92);
+
+  transform: translateX(-50%);
+
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.45);
 }
 
 .project-placeholder .project-meta p {
@@ -824,6 +839,7 @@ p {
     1.1fr
     1fr
     50px;
+
   align-items: center;
   gap: 25px;
 
@@ -841,14 +857,14 @@ p {
 
   position: absolute;
   inset: 0;
+  z-index: 0;
 
   background: var(--blue);
 
   transform: translateX(-101%);
+
   transition:
     transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
-
-  z-index: 0;
 }
 
 .capability-row:hover::before {
@@ -856,11 +872,8 @@ p {
 }
 
 .capability-row:hover {
-  padding:
-    0
-    22px;
-
-  color: white;
+  padding: 0 22px;
+  color: #ffffff;
 }
 
 .capability-row > * {
@@ -1156,6 +1169,7 @@ footer {
     1fr
     auto
     1fr;
+
   align-items: center;
   gap: 25px;
 
@@ -1197,7 +1211,7 @@ footer p {
 }
 
 /* =========================
-   REVEAL ANIMATIONS
+   REVEAL
 ========================= */
 
 .reveal {
@@ -1237,7 +1251,7 @@ footer p {
 
   border-radius: 50%;
 
-  background: white;
+  background: #ffffff;
 
   mix-blend-mode: difference;
 }
@@ -1313,15 +1327,19 @@ footer p {
     min-height: 580px;
   }
 
+  .app-device {
+    top: 43%;
+    width: 43%;
+    height: 72%;
+  }
+
   .capability-row {
     grid-template-columns:
       45px
       1fr
       30px;
 
-    padding:
-      28px
-      0;
+    padding: 28px 0;
   }
 
   .capability-row p {
@@ -1427,8 +1445,23 @@ footer p {
   }
 
   .app-device {
-    width: 52%;
-    height: 64%;
+    top: 42%;
+    width: 56%;
+    height: 66%;
+
+    padding: 8px;
+
+    border-width: 6px;
+    border-radius: 34px;
+  }
+
+  .device-screen {
+    border-radius: 24px;
+  }
+
+  .device-speaker {
+    top: 13px;
+    height: 10px;
   }
 
   .capability-row h3 {
@@ -1464,7 +1497,7 @@ footer p {
 }
 
 /* =========================
-   TOUCH AND ACCESSIBILITY
+   TOUCH + ACCESSIBILITY
 ========================= */
 
 @media (pointer: coarse) {
