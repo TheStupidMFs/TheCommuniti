@@ -1187,3 +1187,34 @@ footer p {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* TRUST + INQUIRY FORM */
+.trust{background:#f2eee5;color:#090909}
+.trust .section-intro{color:#5e5a52}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:58px 0 34px}
+.trust-card{min-height:300px;padding:28px;border:1px solid rgba(0,0,0,.14);border-radius:var(--radius-medium);background:rgba(255,255,255,.48);display:flex;flex-direction:column}
+.trust-card>span{font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--blue)}
+.trust-card h3{margin:auto 0 14px;font-family:"Space Grotesk",sans-serif;font-size:clamp(24px,2.1vw,36px);letter-spacing:-.04em}
+.trust-card p{margin:0;color:#646057;line-height:1.65}
+.button-secondary{display:inline-flex;align-items:center;gap:20px;padding:16px 22px;border-radius:100px;background:#090909;color:#fff;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.contact-layout{display:grid;grid-template-columns:.65fr 1.35fr;gap:7vw;align-items:start;margin-top:55px}
+.contact-intro{max-width:460px;color:#aaa;font-size:18px;line-height:1.65}
+.contact-email{display:inline-block;margin-top:18px;color:#fff;font-weight:800;border-bottom:1px solid rgba(255,255,255,.45);padding-bottom:4px}
+.project-form{position:relative;z-index:2}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px 18px}
+.form-grid label{display:flex;flex-direction:column;gap:9px}
+.form-grid label>span{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#aaa}
+.form-grid input,.form-grid select,.form-grid textarea{width:100%;border:1px solid rgba(255,255,255,.22);border-radius:14px;background:rgba(255,255,255,.055);color:#fff;padding:16px;font:inherit;outline:none;transition:border-color .2s,background .2s}
+.form-grid select{appearance:auto}
+.form-grid select option{color:#050505}
+.form-grid textarea{resize:vertical;min-height:150px}
+.form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus{border-color:var(--yellow);background:rgba(255,255,255,.09)}
+.form-wide{grid-column:1/-1}
+.form-honey{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important}
+.form-submit-row{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:25px}
+.form-submit-row p{max-width:360px;margin:0;color:#777;font-size:12px;line-height:1.5}
+.form-submit-row button{border:0;cursor:pointer;white-space:nowrap}
+.footer-links{display:flex;gap:18px}
+@media(max-width:1000px){.trust-grid{grid-template-columns:1fr 1fr}.contact-layout{grid-template-columns:1fr}.contact-intro{max-width:680px}}
+@media(max-width:620px){.trust-grid,.form-grid{grid-template-columns:1fr}.trust-card{min-height:240px}.form-wide{grid-column:auto}.form-submit-row{align-items:stretch;flex-direction:column}.form-submit-row button{width:100%}.footer-links{flex-wrap:wrap}}

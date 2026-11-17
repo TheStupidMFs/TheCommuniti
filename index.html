@@ -64,6 +64,7 @@
       aria-label="Primary navigation"
     >
       <a href="#work">Work</a>
+      <a href="packages/">Packages</a>
       <a href="founder/">Founder</a>
       <a href="#capabilities">Capabilities</a>
       <a href="#process">Process</a>
@@ -86,6 +87,7 @@
     aria-hidden="true"
   >
     <a href="#work">Work</a>
+    <a href="packages/">Packages</a>
     <a href="founder/">Founder</a>
     <a href="#capabilities">Capabilities</a>
     <a href="#process">Process</a>
@@ -302,7 +304,7 @@
               </p>
 
               <h3>
-                Más Cafecito
+                Mi Cafecito
               </h3>
             </div>
 
@@ -416,6 +418,45 @@
         </article>
       </div>
     </section>
+    <!-- TRUST -->
+    <section class="trust section" aria-labelledby="trust-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker reveal">Built on real work</p>
+          <h2 class="reveal" id="trust-title">Proof before promises.</h2>
+        </div>
+        <p class="section-intro reveal">
+          No stock case studies. The campaigns, products and footage you see
+          throughout this site come from projects we helped bring to life.
+        </p>
+      </div>
+      <div class="trust-grid">
+        <article class="trust-card reveal">
+          <span>01</span>
+          <h3>Real project footage</h3>
+          <p>Our portfolio is built from delivered campaigns, events, products and digital experiences.</p>
+        </article>
+        <article class="trust-card reveal">
+          <span>02</span>
+          <h3>Founder-led</h3>
+          <p>You work directly with Nick Hernandez from the first conversation through creative delivery.</p>
+        </article>
+        <article class="trust-card reveal">
+          <span>03</span>
+          <h3>Southern California + remote</h3>
+          <p>Available for local production across Southern California and digital collaborations anywhere.</p>
+        </article>
+        <article class="trust-card reveal">
+          <span>04</span>
+          <h3>One connected system</h3>
+          <p>Brand, content, websites and campaign assets are planned together so the final work feels consistent.</p>
+        </article>
+      </div>
+      <a class="button button-secondary reveal" href="packages/">
+        <span>Explore project packages</span><span aria-hidden="true">↗</span>
+      </a>
+    </section>
+
     <!-- CAPABILITIES -->
     <section
       class="capabilities section"
@@ -658,13 +699,85 @@
         <span>people remember.</span>
       </h2>
 
-      <a
-        class="contact-link magnetic reveal"
-        href="mailto:work@thecommuniti.com"
-      >
-        work@thecommuniti.com
-        <span>↗</span>
-      </a>
+      <div class="contact-layout">
+        <div class="contact-intro reveal">
+          <p>
+            Tell us what you are building, what you need and when you want to
+            launch. We will review it and reply directly.
+          </p>
+          <a class="contact-email" href="mailto:work@thecommuniti.com">
+            Or email work@thecommuniti.com ↗
+          </a>
+        </div>
+
+        <form
+          class="project-form reveal"
+          action="https://formsubmit.co/work@thecommuniti.com"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="New project inquiry — The Communiti">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://thecommuniti.com/thanks/">
+          <input type="hidden" name="_url" value="https://thecommuniti.com/#contact">
+          <input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off">
+
+          <div class="form-grid">
+            <label>
+              <span>Your name *</span>
+              <input type="text" name="name" autocomplete="name" required>
+            </label>
+            <label>
+              <span>Email *</span>
+              <input type="email" name="email" autocomplete="email" required>
+            </label>
+            <label>
+              <span>Business or brand</span>
+              <input type="text" name="business" autocomplete="organization">
+            </label>
+            <label>
+              <span>Phone</span>
+              <input type="tel" name="phone" autocomplete="tel">
+            </label>
+            <label>
+              <span>What do you need? *</span>
+              <select name="service" required>
+                <option value="" selected disabled>Select a service</option>
+                <option>Brand Foundation</option>
+                <option>Digital Launch</option>
+                <option>Content Campaign</option>
+                <option>Custom / Multiple services</option>
+              </select>
+            </label>
+            <label>
+              <span>Estimated budget *</span>
+              <select name="budget" required>
+                <option value="" selected disabled>Select a range</option>
+                <option>Under $1,000</option>
+                <option>$1,000–$2,500</option>
+                <option>$2,500–$5,000</option>
+                <option>$5,000–$10,000</option>
+                <option>$10,000+</option>
+                <option>Not sure yet</option>
+              </select>
+            </label>
+            <label class="form-wide">
+              <span>Ideal launch date or timeline</span>
+              <input type="text" name="timeline" placeholder="Example: Within 6–8 weeks">
+            </label>
+            <label class="form-wide">
+              <span>Tell us about the project *</span>
+              <textarea name="message" rows="6" required placeholder="What are you building, and what would make this project successful?"></textarea>
+            </label>
+          </div>
+
+          <div class="form-submit-row">
+            <p>By submitting, you agree that we may contact you about this project.</p>
+            <button class="button button-primary" type="submit">
+              Send project inquiry <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </form>
+      </div>
     </section>
   </main>
 
@@ -677,6 +790,7 @@
     </a>
 
     <div class="footer-links">
+      <a href="packages/">Packages</a>
       <a href="founder/">Founder</a>
     </div>
 
